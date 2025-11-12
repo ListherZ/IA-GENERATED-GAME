@@ -44,6 +44,9 @@ namespace SphereTrials
 
             // Buscar punto de spawn
             Transform spawnPoint = _currentLevelInstance.transform.Find("SpawnPoint");
+            if (spawnPoint != null) {
+                Debug.Log(spawnPoint.position);
+            }
             Vector3 spawnPos = spawnPoint != null ? spawnPoint.position : new Vector3(0f, 2f, 0f);
 
             // Crear o resetear jugador
