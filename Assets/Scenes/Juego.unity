@@ -233,6 +233,7 @@ GameObject:
   - component: {fileID: 330585545}
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
+  - component: {fileID: 330585548}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -358,6 +359,21 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &330585548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c19ed978cf4f56f488ea9a3db63d209d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 6, z: -8}
+  smoothSpeed: 10
+  playerTag: Player
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1398,8 +1414,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelPrefabs:
   - {fileID: 2614429539421192329, guid: 5ddab234d65c76a458dfa8ae2e656ee0, type: 3}
+  - {fileID: 2614429539421192329, guid: 5ddab234d65c76a458dfa8ae2e656ee0, type: 3}
   playerPrefab: {fileID: 7475060818488333864, guid: f50db8b4600995b40b1def8252d45737, type: 3}
-  cameraFollow: {fileID: 3212975865493798367, guid: f50db8b4600995b40b1def8252d45737, type: 3}
+  cameraFollow: {fileID: 330585548}
 --- !u!4 &2073522045
 Transform:
   m_ObjectHideFlags: 0

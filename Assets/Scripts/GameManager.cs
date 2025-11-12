@@ -7,16 +7,16 @@ namespace SphereTrials
     {
         public static GameManager Instance { get; private set; }
 
-        [Header("Salud del Jugador")]
+        [Header("Salud del jugador")]
         [SerializeField] private int maxHealth = 5;
         [SerializeField] private int currentHealth;
 
-        [Header("Progreso del Juego")]
+        [Header("Progreso")]
         [SerializeField] private int currentLevelIndex = 0;
         [SerializeField] private int lossesCount = 0;
         [SerializeField] private int score = 0;
 
-        [Header("Referencias de UI")]
+        [Header("Referencias UI")]
         [SerializeField] private TextMeshProUGUI healthText;
         [SerializeField] private TextMeshProUGUI levelText;
         [SerializeField] private TextMeshProUGUI lossesText;
@@ -25,9 +25,11 @@ namespace SphereTrials
 
         private MapManager _mapManager;
 
-        // -----------------------------------------------------------
-        // Ciclo de vida
-        // -----------------------------------------------------------
+        // --- Protección contra múltiples muertes ---
+        private bool isProcessingDeath = false;
+        public bool IsProcessingDeath => isProcessingDeath;
+
+        // -----------------------------------------------------
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -42,27 +44,24 @@ namespace SphereTrials
 
         private void Start()
         {
-            // Buscar MapManager si aún no se registró
+            // Busca un MapManager activo si no se ha registrado aún
             if (_mapManager == null)
-                _mapManager = FindFirstObjectByType<MapManager>();
+                _mapManager = FindObjectOfType<MapManager>();
 
             if (_mapManager != null)
                 StartLevel(currentLevelIndex);
             else
-                Debug.LogWarning("GameManager: No se encontró un MapManager en la escena.");
+                Debug.LogWarning("GameManager: No se encontró MapManager en la escena.");
         }
 
-        // -----------------------------------------------------------
-        // Registro del gestor de mapas
-        // -----------------------------------------------------------
         public void RegisterMapManager(MapManager manager)
         {
             _mapManager = manager;
         }
 
-        // -----------------------------------------------------------
-        // Control de niveles
-        // -----------------------------------------------------------
+        // -----------------------------------------------------
+        // Inicio de nivel
+        // -----------------------------------------------------
         private void StartLevel(int levelIndex)
         {
             if (_mapManager == null) return;
@@ -73,11 +72,14 @@ namespace SphereTrials
             UpdateUI();
         }
 
-        // -----------------------------------------------------------
-        // Sistema de daño y muerte
-        // -----------------------------------------------------------
+        // -----------------------------------------------------
+        // Daño, muerte y reinicio
+        // -----------------------------------------------------
         public void PlayerHit(int damage)
         {
+            if (isProcessingDeath)
+                return;
+
             currentHealth -= Mathf.Abs(damage);
 
             if (currentHealth <= 0)
@@ -92,27 +94,41 @@ namespace SphereTrials
 
         public void PlayerDied()
         {
+            if (isProcessingDeath)
+                return;
+
+            isProcessingDeath = true;
             lossesCount++;
             currentHealth = 0;
-            ShowMessage("💀 Has muerto. Reiniciando nivel...");
 
+            ShowMessage("💀 Has muerto. Reiniciando nivel...");
             UpdateUI();
 
-            // Reinicia el nivel actual
+            // Reiniciar nivel actual
             if (_mapManager != null)
             {
                 _mapManager.ReloadCurrentLevel(currentLevelIndex);
             }
 
-            // Restaura vida y limpia mensaje
+            // Restaurar vida
             currentHealth = maxHealth;
             UpdateUI();
+
+            // Ocultar mensaje después de un rato
             ClearMessageDelayed(1.5f);
+
+            // Liberar flag de protección
+            Invoke(nameof(ResetDeathFlag), 0.1f);
         }
 
-        // -----------------------------------------------------------
-        // Ganar nivel / objetivo
-        // -----------------------------------------------------------
+        private void ResetDeathFlag()
+        {
+            isProcessingDeath = false;
+        }
+
+        // -----------------------------------------------------
+        // Meta / siguiente nivel
+        // -----------------------------------------------------
         public void PlayerReachedGoal()
         {
             ShowMessage("🎉 ¡Nivel completado!");
@@ -130,18 +146,18 @@ namespace SphereTrials
             }
         }
 
-        // -----------------------------------------------------------
-        // Sistema de puntuación
-        // -----------------------------------------------------------
+        // -----------------------------------------------------
+        // Puntaje
+        // -----------------------------------------------------
         public void AddScore(int value)
         {
             score += Mathf.Max(0, value);
             UpdateUI();
         }
 
-        // -----------------------------------------------------------
+        // -----------------------------------------------------
         // UI
-        // -----------------------------------------------------------
+        // -----------------------------------------------------
         private void UpdateUI()
         {
             if (healthText != null)

@@ -14,10 +14,10 @@ GameObject:
   - component: {fileID: 6780255088101289833}
   - component: {fileID: 4902352416954145501}
   - component: {fileID: 7475060818488333864}
-  - component: {fileID: 3212975865493798367}
+  - component: {fileID: 5700043332561152576}
   m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68,7 +68,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 895e7557003c1744eb104fac7f7b7ac4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -158,8 +158,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   maxUpwardSpeed: 1
+  maxFallSpeed: 20
   fallThresholdY: -20
---- !u!114 &3212975865493798367
+--- !u!114 &5700043332561152576
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,10 +169,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 3984217307691352661}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c19ed978cf4f56f488ea9a3db63d209d, type: 3}
+  m_Script: {fileID: 11500000, guid: bff4f5a8991d7fa47baed5c5ff25979f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1518694488822394131}
-  offset: {x: 0, y: 8, z: -10}
-  followSpeed: 8
-  lookSpeed: 12
+  material: {fileID: 2100000, guid: ae721c767fcd6664ca1cf46b36bb56b7, type: 2}
+  duration: 1
+  corner: 1
+  loop: 0
+  points:
+  - {x: 0, y: 0, z: 1}
+  - {x: 0.58778524, y: 0, z: 0.809017}
+  - {x: 0.95105654, y: 0, z: 0.30901697}
+  - {x: 0.9510565, y: 0, z: -0.30901703}
+  - {x: 0.5877852, y: 0, z: -0.80901706}
+  - {x: -0.00000008742278, y: 0, z: -1}
+  - {x: -0.58778536, y: 0, z: -0.80901694}
+  - {x: -0.9510565, y: 0, z: -0.3090171}
+  - {x: -0.9510565, y: 0, z: 0.30901712}
+  - {x: -0.58778495, y: 0, z: 0.80901724}
