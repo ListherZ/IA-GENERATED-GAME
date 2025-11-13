@@ -183,7 +183,7 @@ namespace SphereTrials
         private void UpdateUI()
         {
             if (healthText != null)
-                healthText.text = $"Health: {currentHealth}/{maxHealth}";
+                healthText.text = $"Health: {currentHealth} of {maxHealth}";
 
             if (levelText != null)
                 levelText.text = $"Level: {currentLevelIndex + 1}";
