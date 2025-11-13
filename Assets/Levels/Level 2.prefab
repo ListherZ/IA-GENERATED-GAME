@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 6441567022055824717}
   - component: {fileID: 8004736921901391994}
   - component: {fileID: 4552672164061666795}
-  - component: {fileID: 1600763093129842177}
+  - component: {fileID: 8460602670752194597}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -196,8 +196,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1600763093129842177
-CapsuleCollider:
+--- !u!65 &8460602670752194597
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -214,11 +214,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  serializedVersion: 3
+  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
+  m_Center: {x: 0.000000059604645, y: -0.0000011920929, z: -0.00000008940697}
 --- !u!1 &2219153419462911583
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,6 +752,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Point (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5419515586294654492, guid: 2035e51893efcf742925dfaebf7ea7b0, type: 3}
+      propertyPath: pickupEffect
+      value: 
+      objectReference: {fileID: 2965222256817593503, guid: a164e676dbbd6e54587237e619372c98, type: 3}
     - target: {fileID: 6609403540820266081, guid: 2035e51893efcf742925dfaebf7ea7b0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.410001
@@ -816,6 +818,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Point (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5419515586294654492, guid: 2035e51893efcf742925dfaebf7ea7b0, type: 3}
+      propertyPath: pickupEffect
+      value: 
+      objectReference: {fileID: 2965222256817593503, guid: a164e676dbbd6e54587237e619372c98, type: 3}
     - target: {fileID: 6609403540820266081, guid: 2035e51893efcf742925dfaebf7ea7b0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.329999
@@ -878,6 +884,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Point
       objectReference: {fileID: 0}
+    - target: {fileID: 5419515586294654492, guid: 2035e51893efcf742925dfaebf7ea7b0, type: 3}
+      propertyPath: pickupEffect
+      value: 
+      objectReference: {fileID: 2965222256817593503, guid: a164e676dbbd6e54587237e619372c98, type: 3}
     - target: {fileID: 6609403540820266081, guid: 2035e51893efcf742925dfaebf7ea7b0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.43
@@ -940,6 +950,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Point (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5419515586294654492, guid: 2035e51893efcf742925dfaebf7ea7b0, type: 3}
+      propertyPath: pickupEffect
+      value: 
+      objectReference: {fileID: 2965222256817593503, guid: a164e676dbbd6e54587237e619372c98, type: 3}
     - target: {fileID: 6609403540820266081, guid: 2035e51893efcf742925dfaebf7ea7b0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.32
@@ -1002,6 +1016,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Point (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5419515586294654492, guid: 2035e51893efcf742925dfaebf7ea7b0, type: 3}
+      propertyPath: pickupEffect
+      value: 
+      objectReference: {fileID: 2965222256817593503, guid: a164e676dbbd6e54587237e619372c98, type: 3}
     - target: {fileID: 6609403540820266081, guid: 2035e51893efcf742925dfaebf7ea7b0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.42
@@ -1064,6 +1082,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Point (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5419515586294654492, guid: 2035e51893efcf742925dfaebf7ea7b0, type: 3}
+      propertyPath: pickupEffect
+      value: 
+      objectReference: {fileID: 2965222256817593503, guid: a164e676dbbd6e54587237e619372c98, type: 3}
     - target: {fileID: 6609403540820266081, guid: 2035e51893efcf742925dfaebf7ea7b0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.339999

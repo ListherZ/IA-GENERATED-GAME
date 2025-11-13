@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 3e5399bd195de7649b874f58c1b9f8a3, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 85cf0b004bc4a654b9e501efcce47902, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -2265,6 +2265,8 @@ MonoBehaviour:
   - {fileID: 2614429539421192329, guid: a7c2f8bd65042494bb6aeb6a9acfee2e, type: 3}
   - {fileID: 2614429539421192329, guid: 15544593600c56848bb426baec897726, type: 3}
   - {fileID: 3200726032008197813, guid: 0e600f1cb6fc8854799007e045cf8073, type: 3}
+  - {fileID: 2745788781111196493, guid: 87c90722d9d0a7a46a80f040f2da9740, type: 3}
+  - {fileID: 4080942059084141286, guid: 43d4c6e0ceaf14549a859df776b8bb1f, type: 3}
   playerPrefab: {fileID: 7475060818488333864, guid: f50db8b4600995b40b1def8252d45737, type: 3}
   cameraFollow: {fileID: 330585548}
 --- !u!4 &2073522045

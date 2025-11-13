@@ -127,6 +127,7 @@ namespace SphereTrials
             if (_mapManager != null)
             {
                 _mapManager.ReloadCurrentLevel(currentLevelIndex);
+                score = 0;
             }
 
             // Restaurar vida
